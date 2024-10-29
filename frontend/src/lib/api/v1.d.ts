@@ -44,8 +44,7 @@ export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
         Pet: {
-            /** Format: int64 */
-            id: number;
+            id: string;
             name: string;
             tag?: string;
         };
