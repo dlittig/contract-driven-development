@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "cdd-backend"
+version = "0.1.0"
+description = ""
+authors = ["David Littig"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.4"
+poethepoet = "^0.29.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+
+[tool.poe.tasks.generate]
+cmd  = "openapi-generator-cli generate -g python-pydantic-v1 -i ../spec/openapi-spec-v1.yaml -o src/lib/api"
+help = "Generate code based on OpenApi Spec"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
