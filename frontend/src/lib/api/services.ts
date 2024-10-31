@@ -4,7 +4,7 @@ import { paths } from "./v1";
 import { Pet } from "./types";
 
 export const apiClient = createClient<paths>({
-  baseUrl: "http://127.0.0.1:8080/api/v1",
+  baseUrl: "http://127.0.0.1:8080",
 });
 
 export const createPet = async (client: typeof apiClient, pet: Pet) => {

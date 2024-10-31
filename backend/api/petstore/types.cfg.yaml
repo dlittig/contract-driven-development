@@ -1,0 +1,5 @@
+# yaml-language-server: $schema=../../oapi-codegen-config-schema.json
+package: api
+generate:
+  models: true
+output: ./gen/petstore-types.gen.go

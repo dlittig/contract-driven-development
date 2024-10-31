@@ -22,7 +22,7 @@ afterAll(() => server.close());
 
 describe("pet api", () => {
   it("creates a new pet successfully", async () => {
-    const BASE_URL = "http://127.0.0.1:8080/api/v1";
+    const BASE_URL = "http://127.0.0.1:8080";
 
     server.use(
       http.post(`${BASE_URL}/pets`, () => {
@@ -49,7 +49,7 @@ describe("pet api", () => {
   });
 
   it("creates a new pet via service successfully", async () => {
-    const BASE_URL = "http://127.0.0.1:8080/api/v1";
+    const BASE_URL = "http://127.0.0.1:8080";
 
     server.use(
       http.post(`${BASE_URL}/pets`, () => {
@@ -72,7 +72,7 @@ describe("pet api", () => {
   });
 
   it("fails to create a new pet when a server error occurs", async () => {
-    const BASE_URL = "http://127.0.0.1:8080/api/v1";
+    const BASE_URL = "http://127.0.0.1:8080";
 
     server.use(
       http.post(`${BASE_URL}/pets`, () => {
@@ -106,7 +106,7 @@ describe("pet api", () => {
   });
 
   it("fails to create a new pet via service when a server error occurs", async () => {
-    const BASE_URL = "http://127.0.0.1:8080/api/v1";
+    const BASE_URL = "http://127.0.0.1:8080";
 
     server.use(
       http.post(`${BASE_URL}/pets`, () => {

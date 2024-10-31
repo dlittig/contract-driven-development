@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=../../oapi-codegen-config-schema.json
+package: api
+generate:
+  gin-server: true
+  embedded-spec: true
+output: ./gen/petstore-server.gen.go

@@ -1,45 +1,24 @@
 import { useEffect, useState } from "react";
-import { useAtom, useSetAtom } from "jotai";
+import { useAtom } from "jotai";
 
 import Card from "./components/Card";
+import { allPetsAtom } from "./store";
+import { usePetRetriever } from "./utils";
 import Loading from "./components/Loading";
 import Controls from "./components/Controls";
-import { apiClient, getPets } from "./lib/api/services";
-import { allPetsAtom, petsAtom, PetStore } from "./store";
 
 const App = () => {
   const [allPets] = useAtom(allPetsAtom);
-  const setPets = useSetAtom(petsAtom);
+  const retrieve = usePetRetriever();
   const [isPending, setPending] = useState(false);
-
-  const retrievePets = async () => {
-    const { data: remotePets, error } = await getPets(apiClient);
-
-    if (error) {
-      return alert("Failed to fetch pets :(");
-    }
-
-    if (remotePets) {
-      const allIds = remotePets.map((p) => p.id);
-      const byId: PetStore["byId"] = {};
-
-      remotePets.forEach((p) => {
-        byId[p.id] = p;
-      });
-
-      setPets({
-        allIds,
-        byId,
-      });
-    }
-  };
 
   useEffect(() => {
     (async () => {
       setPending(true);
-      await retrievePets();
+      await retrieve();
       setPending(false);
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "spec": "npx openapi-typescript ../spec/ -o ./src/lib/api/v1.d.ts",
+    "spec": "npx openapi-typescript ../spec/openapi-spec-v1.yaml -o ./src/lib/api/v1.d.ts",
     "test": "vitest"
   },
   "dependencies": {
