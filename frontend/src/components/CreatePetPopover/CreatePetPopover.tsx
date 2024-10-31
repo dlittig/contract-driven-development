@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "../Button";
-import { createPet } from "../../lib/api/services";
+import { apiClient, createPet } from "../../lib/api/services";
 
 const CreatePetPopover = () => {
   const [name, setName] = useState("");
@@ -11,7 +11,7 @@ const CreatePetPopover = () => {
       return alert("Please fill all fields.");
     }
 
-    createPet({
+    createPet(apiClient, {
       id: crypto.randomUUID(),
       name,
       tag,
