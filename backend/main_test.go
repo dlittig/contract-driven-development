@@ -10,7 +10,6 @@ import (
 	api "cdd/backend/api/petstore"
 	gen "cdd/backend/api/petstore/gen"
 
-	"github.com/google/uuid"
 	"github.com/oapi-codegen/testutil"
 	"github.com/stretchr/testify/assert"
 )
@@ -28,8 +27,7 @@ func TestPetStore(t *testing.T) {
 
 	t.Run("Add pet", func(t *testing.T) {
 		tag := "TagOfSpot"
-		newPet := gen.Pet{
-			Id:   uuid.New().String(),
+		newPet := gen.NewPet{
 			Name: "Spot",
 			Tag:  &tag,
 		}
@@ -37,6 +35,7 @@ func TestPetStore(t *testing.T) {
 		rr := testutil.NewRequest().Post("/pets").WithJsonBody(newPet).GoWithHTTPHandler(t, r).Recorder
 		assert.Equal(t, http.StatusCreated, rr.Code)
 		assert.Empty(t, rr.Body.String())
+		assert.Equal(t, 3, len(store.Pets)) // By default 2 pets are already in the store
 	})
 
 	t.Run("Find pet by ID", func(t *testing.T) {

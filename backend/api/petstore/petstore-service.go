@@ -93,8 +93,8 @@ func (p *PetStore) ListPets(c *gin.Context, params gen.ListPetsParams) {
 
 func (p *PetStore) CreatePets(c *gin.Context) {
 	// We expect a NewPet object in the request body.
-	var pet gen.Pet
-	err := c.Bind(&pet)
+	var newPet gen.NewPet
+	err := c.Bind(&newPet)
 	if err != nil {
 		sendPetStoreError(c, http.StatusBadRequest, "Invalid format for NewPet")
 		return
@@ -106,7 +106,13 @@ func (p *PetStore) CreatePets(c *gin.Context) {
 	defer p.Lock.Unlock()
 
 	// Insert into map
-	p.Pets[pet.Id] = pet
+	id := uuid.New().String()
+	pet := gen.Pet{
+		Id:   id,
+		Name: newPet.Name,
+		Tag:  newPet.Tag,
+	}
+	p.Pets[id] = pet
 
 	c.Status(http.StatusCreated)
 }
