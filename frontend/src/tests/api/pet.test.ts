@@ -34,7 +34,6 @@ describe("pet api", () => {
     );
 
     const mockPet: CreatePetParams = {
-      id: crypto.randomUUID(),
       name: "Bober",
       tag: "Beever",
     };
@@ -61,7 +60,6 @@ describe("pet api", () => {
     );
 
     const mockPet: CreatePetParams = {
-      id: crypto.randomUUID(),
       name: "Bober",
       tag: "Beever",
     };
@@ -90,7 +88,6 @@ describe("pet api", () => {
     );
 
     const mockPet: CreatePetParams = {
-      id: crypto.randomUUID(),
       name: "Bober",
       tag: "Beever",
     };
@@ -124,7 +121,6 @@ describe("pet api", () => {
     );
 
     const mockPet: CreatePetParams = {
-      id: crypto.randomUUID(),
       name: "Bober",
       tag: "Beever",
     };

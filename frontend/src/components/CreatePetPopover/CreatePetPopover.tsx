@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import Button from "../Button";
-import { apiClient, createPet } from "../../lib/api/services";
 import { usePetRetriever } from "../../utils";
+import { apiClient, createPet } from "../../lib/api/services";
 
 const CreatePetPopover = () => {
   const [name, setName] = useState("");
@@ -15,7 +15,6 @@ const CreatePetPopover = () => {
     }
 
     createPet(apiClient, {
-      id: crypto.randomUUID(),
       name,
       tag,
     }).then((error) => {
