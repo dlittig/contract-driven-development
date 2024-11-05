@@ -108,8 +108,7 @@ func (p *PetStore) CreatePets(c *gin.Context) {
 	// Insert into map
 	p.Pets[pet.Id] = pet
 
-	// Now, we have to return the NewPet
-	c.JSON(http.StatusCreated, pet)
+	c.Status(http.StatusCreated)
 }
 
 func (p *PetStore) ShowPetById(c *gin.Context, petId string) {
