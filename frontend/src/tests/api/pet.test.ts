@@ -1,9 +1,10 @@
 import { setupServer } from "msw/node";
-import { http, HttpResponse } from "msw";
 import createClient from "openapi-fetch";
+import { http, HttpResponse } from "msw";
+
 import { paths } from "../../lib/api/v1";
-import { Pet } from "../../lib/api/types";
 import { createPet } from "../../lib/api/services";
+import { CreatePetParams } from "../../lib/api/types";
 
 const server = setupServer();
 
@@ -32,7 +33,7 @@ describe("pet api", () => {
       })
     );
 
-    const mockPet: Pet = {
+    const mockPet: CreatePetParams = {
       id: crypto.randomUUID(),
       name: "Bober",
       tag: "Beever",
@@ -59,7 +60,7 @@ describe("pet api", () => {
       })
     );
 
-    const mockPet: Pet = {
+    const mockPet: CreatePetParams = {
       id: crypto.randomUUID(),
       name: "Bober",
       tag: "Beever",
@@ -88,7 +89,7 @@ describe("pet api", () => {
       })
     );
 
-    const mockPet: Pet = {
+    const mockPet: CreatePetParams = {
       id: crypto.randomUUID(),
       name: "Bober",
       tag: "Beever",
@@ -122,7 +123,7 @@ describe("pet api", () => {
       })
     );
 
-    const mockPet: Pet = {
+    const mockPet: CreatePetParams = {
       id: crypto.randomUUID(),
       name: "Bober",
       tag: "Beever",
