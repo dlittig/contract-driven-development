@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "spec": "npx openapi-typescript ../spec/openapi-spec-v1.yaml -o ./src/lib/api/v1.d.ts",
-    "test": "vitest"
+    "test": "tsc -b && vitest"
   },
   "dependencies": {
     "jotai": "^2.10.1",
