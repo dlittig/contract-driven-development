@@ -14,7 +14,6 @@ export const createPet = async (
   try {
     // Seems to be ambiguous but we only want parameters here that are explicitly defined in our type
     const checkedParams: CreatePetParams = {
-      id: params.id,
       name: params.name,
       tag: params.tag,
     };

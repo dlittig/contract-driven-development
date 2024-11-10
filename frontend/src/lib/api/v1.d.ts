@@ -43,6 +43,10 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        NewPet: {
+            name: string;
+            tag?: string;
+        };
         Pet: {
             id: string;
             name: string;
@@ -106,7 +110,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["Pet"];
+                "application/json": components["schemas"]["NewPet"];
             };
         };
         responses: {

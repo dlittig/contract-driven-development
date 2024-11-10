@@ -52,7 +52,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Pet'
+              $ref: '#/components/schemas/NewPet'
         required: true
       responses:
         '201':
@@ -91,6 +91,15 @@ paths:
                 $ref: "#/components/schemas/Error"
 components:
   schemas:
+    NewPet:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        tag:
+          type: string
     Pet:
       type: object
       required:

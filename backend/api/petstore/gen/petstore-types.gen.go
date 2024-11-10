@@ -9,6 +9,12 @@ type Error struct {
 	Message string `json:"message"`
 }
 
+// NewPet defines model for NewPet.
+type NewPet struct {
+	Name string  `json:"name"`
+	Tag  *string `json:"tag,omitempty"`
+}
+
 // Pet defines model for Pet.
 type Pet struct {
 	Id   string  `json:"id"`
@@ -26,4 +32,4 @@ type ListPetsParams struct {
 }
 
 // CreatePetsJSONRequestBody defines body for CreatePets for application/json ContentType.
-type CreatePetsJSONRequestBody = Pet
+type CreatePetsJSONRequestBody = NewPet
